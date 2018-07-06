@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">asdf</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Add new person</string>
+    <string name="fragment_delete">Add new person</string>
+    <string name="fragment_list">Add new person</string>
+    <string name="fragment_update">Add new person</string>
+</resources>
