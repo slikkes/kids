@@ -3,14 +3,35 @@
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <RelativeLayout
+    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:stretchColumns="1">
+        <TableRow>
+
+            <TextView
+                android:id="@+id/tv_row_name"
+                android:padding="3dip"
+                android:text="asdf"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+            <TextView
+                android:id="@+id/tv_row_points"
+                android:text="yxcv"
+                android:gravity="right"
+                android:padding="3dip"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+        </TableRow>
+    </TableLayout>
+
+
+<!--    <RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="6dp">
         <TextView
-            android:id="@+id/textView1"
+            android:id="@+id/tv_row_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -19,47 +40,11 @@
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/tv_row_points"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/textView1"
-            android:layout_below="@+id/textView1"
-            android:text="Name: "
-            android:textAppearance="?android:attr/textAppearanceMedium" />
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/textView2"
-            android:layout_below="@+id/textView2"
-            android:text="Quantity: "
-            android:textAppearance="?android:attr/textAppearanceMedium" />
-
-        <TextView
-            android:id="@+id/tv_row_id"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/tv_row_name"
             android:text="TextView"
-            android:layout_above="@+id/textView2"
-            android:layout_alignLeft="@+id/tv_row_lname"
-            android:layout_alignStart="@+id/tv_row_lname" />
-
-        <TextView
-            android:id="@+id/tv_row_lname"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/textView3"
-            android:layout_toRightOf="@+id/textView3"
-            android:text="TextView" />
-
-        <TextView
-            android:id="@+id/tv_row_fname"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/textView3"
-            android:layout_alignBottom="@+id/textView3"
-            android:layout_toRightOf="@+id/textView3"
-            android:text="TextView" />
-    </RelativeLayout>
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+    </RelativeLayout>-->
 </android.support.constraint.ConstraintLayout>

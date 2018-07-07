@@ -10,11 +10,8 @@ public class Kid{
     @PrimaryKey(autoGenerate = true)
     private int _id;
 
-    @ColumnInfo(name = "last_name")
-    private String lastname;
-
-    @ColumnInfo(name = "first_name")
-    private String firstname;
+    @ColumnInfo(name = "name")
+    private String name;
 
     @ColumnInfo(name = "points")
     private int points;
@@ -27,20 +24,12 @@ public class Kid{
         this._id = id;
     }
 
-    public String getLastname() {
-        return lastname;
+    public String getName() {
+        return name;
     }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
-    }
-
-    public String getFirstname() {
-        return firstname;
-    }
-
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getPoints() {

@@ -11,6 +11,7 @@
         android:layout_height="match_parent"
         android:text="@string/fragment_delete" />
 
+
     <EditText
         android:id="@+id/et_delete"
         android:layout_width="wrap_content"

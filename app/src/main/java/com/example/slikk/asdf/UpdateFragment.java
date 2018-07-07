@@ -16,7 +16,7 @@ import android.widget.Toast;
  */
 public class UpdateFragment extends Fragment {
 
-    private EditText etId, etLname, etFname;
+    private EditText etId, name;
     private Button bnUpdate;
 
     public UpdateFragment() {
@@ -31,8 +31,7 @@ public class UpdateFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_update, container, false);
 
         etId = view.findViewById(R.id.et_id);
-        etLname = view.findViewById(R.id.et_lastname);
-        etFname = view.findViewById(R.id.et_firstname);
+        name = view.findViewById(R.id.et_lastname);
 
         bnUpdate = view.findViewById(R.id.bn_update_kid);
         bnUpdate.setOnClickListener(new View.OnClickListener() {
@@ -40,21 +39,18 @@ public class UpdateFragment extends Fragment {
             public void onClick(View view) {
 
                 int id = Integer.parseInt(etId.getText().toString());
-                String lname = etLname.getText().toString();
-                String fname = etFname.getText().toString();
+                String name = UpdateFragment.this.name.getText().toString();
 
                 Kid kid = new Kid();
                 kid.setId(id);
-                kid.setLastname(lname);
-                kid.setFirstname(fname);
+                kid.setName(name);
 
                 MainActivity.appDb.kidsDao().updateKid(kid);
 
                 Toast.makeText(getActivity(), "kid updated",Toast.LENGTH_SHORT).show();
 
                 etId.setText("");
-                etLname.setText("");
-                etFname.setText("");
+                UpdateFragment.this.name.setText("");
             }
         });
 

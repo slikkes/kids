@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.CursorAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.PopupMenu;
@@ -43,19 +44,17 @@ public class ReadKidFragment extends Fragment {
         tvInfo = (ListView) view.findViewById(R.id.tv_info);
 
         String[] columns = {
-                "_id",
-                "last_name",
-                "first_name",
+                "name",
+                "points"
         };
         int[] resourceIds = {
-                R.id.tv_row_id,
-                R.id.tv_row_lname,
-                R.id.tv_row_fname,
+                R.id.tv_row_name,
+                R.id.tv_row_points
         };
 
         Cursor cursor = MainActivity.appDb.kidsDao().getCursorAll();
 
-        ListAdapter adapter = new SimpleCursorAdapter(
+        final CursorAdapter adapter = new SimpleCursorAdapter(
                 getActivity(),
                 R.layout.listview_kids_row,
                 cursor,
@@ -63,7 +62,6 @@ public class ReadKidFragment extends Fragment {
                 resourceIds,
                 0
                 );
-
         tvInfo.setAdapter(adapter);
         tvInfo.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -71,7 +69,10 @@ public class ReadKidFragment extends Fragment {
                 PopupMenu popup = new PopupMenu(getActivity(), v);
                 popup.getMenuInflater().inflate(R.menu.popup_menu, popup.getMenu());
 
+                Toast.makeText(getActivity(), ""+adapter.getItemId(i), Toast.LENGTH_SHORT).show();
+
                 popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+
                     @Override
                     public boolean onMenuItemClick(MenuItem menuItem) {
 

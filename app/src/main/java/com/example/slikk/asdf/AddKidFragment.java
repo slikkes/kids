@@ -17,7 +17,7 @@ import android.widget.Toast;
 public class AddKidFragment extends Fragment {
 
 
-    private EditText firstname, lastname;
+    private EditText name;
     private Button bnSave;
 
     public AddKidFragment() {
@@ -31,8 +31,7 @@ public class AddKidFragment extends Fragment {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_add_kid, container, false);
 
-        lastname = view.findViewById(R.id.et_lastname);
-        firstname = view.findViewById(R.id.et_firstname);
+        name = view.findViewById(R.id.et_name);
         bnSave = view.findViewById(R.id.bn_save);
 
         bnSave.setOnClickListener(new View.OnClickListener() {
@@ -41,19 +40,16 @@ public class AddKidFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-                String fname = firstname.getText().toString();
-                String lname = lastname.getText().toString();
+                String sname = name.getText().toString();
 
                 Kid kid = new Kid();
-                kid.setLastname(lname);
-                kid.setFirstname(fname);
+                kid.setName(sname);
 
                 MainActivity.appDb.kidsDao().addKid(kid);
 
                 Toast.makeText(getActivity(),"kid added succesfully",Toast.LENGTH_SHORT).show();
 
-                lastname.setText("");
-                firstname.setText("");
+                name.setText("");
             }
         });
 

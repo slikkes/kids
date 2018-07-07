@@ -14,7 +14,7 @@
         android:textSize="30sp" />
 
     <EditText
-        android:id="@+id/et_lastname"
+        android:id="@+id/et_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -24,18 +24,6 @@
         android:layout_marginTop="50dp"
         android:layout_marginBottom="25dp"
         android:text="Last Name" />
-
-    <EditText
-        android:id="@+id/et_firstname"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="25dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="125dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="First Name" />
 
     <Button
         android:id="@+id/bn_save"
