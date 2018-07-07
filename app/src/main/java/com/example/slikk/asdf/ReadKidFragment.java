@@ -1,6 +1,8 @@
 package com.example.slikk.asdf;
 
 
+import android.content.Context;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -9,8 +11,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.PopupMenu;
+import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,25 +42,27 @@ public class ReadKidFragment extends Fragment {
 
         tvInfo = (ListView) view.findViewById(R.id.tv_info);
 
-        List<Kid> kids = MainActivity.appDb.kidsDao().getKids();
+        String[] columns = {
+                "_id",
+                "last_name",
+                "first_name",
+        };
+        int[] resourceIds = {
+                R.id.tv_row_id,
+                R.id.tv_row_lname,
+                R.id.tv_row_fname,
+        };
 
-        ArrayList<String> items = new ArrayList<>();
+        Cursor cursor = MainActivity.appDb.kidsDao().getCursorAll();
 
-
-        for (Kid kid : kids) {
-            int id = kid.getId();
-            String lname = kid.getLastname();
-            String fname = kid.getFirstname();
-            items.add(lname + " " + fname);
-//            info += "\n\nid: " + id + "\nlast name: " + lname + "\n first name: "+fname;
-
-        }
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+        ListAdapter adapter = new SimpleCursorAdapter(
                 getActivity(),
-                android.R.layout.simple_list_item_1,
-                items
-        );
+                R.layout.listview_kids_row,
+                cursor,
+                columns,
+                resourceIds,
+                0
+                );
 
         tvInfo.setAdapter(adapter);
         tvInfo.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -92,7 +98,6 @@ public class ReadKidFragment extends Fragment {
 
             }
         });
-
 
         return view;
     }

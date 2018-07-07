@@ -5,6 +5,7 @@ import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
 import android.arch.persistence.room.Update;
+import android.database.Cursor;
 
 import java.util.List;
 
@@ -16,6 +17,9 @@ public interface KidsDao {
 
     @Query("select * from kids")
     public List<Kid> getKids();
+
+    @Query("select * from kids")
+    public Cursor getCursorAll();
 
     @Delete
     public void deleteKid(Kid kid);

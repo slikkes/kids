@@ -8,7 +8,7 @@ import android.arch.persistence.room.PrimaryKey;
 public class Kid{
 
     @PrimaryKey(autoGenerate = true)
-    private int id;
+    private int _id;
 
     @ColumnInfo(name = "last_name")
     private String lastname;
@@ -20,11 +20,11 @@ public class Kid{
     private int points;
 
     public int getId() {
-        return id;
+        return _id;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this._id = id;
     }
 
     public String getLastname() {
