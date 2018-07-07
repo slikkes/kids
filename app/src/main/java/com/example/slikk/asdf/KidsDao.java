@@ -30,4 +30,7 @@ public interface KidsDao {
     @Query("update kids set points = points + :point where _id = :id")
     public void updatePoint(int point, int id);
 
+    @Query("update kids set name = :name where _id = :id")
+    public void updateName(String name, int id);
+
 }

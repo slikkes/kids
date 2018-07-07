@@ -16,7 +16,7 @@ import android.widget.PopupMenu;
  */
 public class HomeFragment extends Fragment implements View.OnClickListener {
 
-    private Button bnAdd, bnRead, bnDelete, bnUpdate;
+    private Button bnAdd, bnRead;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -33,10 +33,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         bnAdd.setOnClickListener(this);
         bnRead = view.findViewById(R.id.bn_show);
         bnRead.setOnClickListener(this);
-        bnDelete = view.findViewById(R.id.bn_delete);
-        bnDelete.setOnClickListener(this);
-        bnUpdate = view.findViewById(R.id.bn_update);
-        bnUpdate.setOnClickListener(this);
+
         return view;
     }
 
@@ -48,15 +45,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 break;
             case R.id.bn_show:
                 MainActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container, new ReadKidFragment()).addToBackStack(null).commit();
-                break;
-            case R.id.bn_delete:
-                MainActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container,new DeleteFragment()).addToBackStack(null).commit();
-                break;
-            case R.id.bn_update:
-                //MainActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container, new UpdateFragment()).addToBackStack(null).commit();
-                PopupMenu popup = new PopupMenu(getActivity(), bnUpdate);
-                popup.getMenuInflater().inflate(R.menu.popup_menu, popup.getMenu());
-                popup.show();
                 break;
         }
     }

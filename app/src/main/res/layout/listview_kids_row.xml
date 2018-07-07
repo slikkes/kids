@@ -13,38 +13,18 @@
                 android:id="@+id/tv_row_name"
                 android:padding="3dip"
                 android:text="asdf"
+                android:textSize="30sp"
+                android:layout_marginLeft="8dp"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
             <TextView
                 android:id="@+id/tv_row_points"
                 android:text="yxcv"
                 android:gravity="right"
                 android:padding="3dip"
+                android:textSize="30sp"
+                android:layout_marginRight="8dp"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
         </TableRow>
     </TableLayout>
 
-
-<!--    <RelativeLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="6dp">
-        <TextView
-            android:id="@+id/tv_row_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:text="ID: "
-            android:textAppearance="?android:attr/textAppearanceMedium" />
-
-        <TextView
-            android:id="@+id/tv_row_points"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/tv_row_name"
-            android:text="TextView"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
-    </RelativeLayout>-->
 </android.support.constraint.ConstraintLayout>

@@ -88,19 +88,45 @@ public class ReadKidFragment extends Fragment {
                                 break;
 
                             case R.id.popup_update:
+
+                                AlertDialog.Builder nameBuilder = new AlertDialog.Builder(getContext());
+                                View nameD = getLayoutInflater().inflate(R.layout.dialog_name_update, container, false);
+                                final EditText etName = nameD.findViewById(R.id.et_update_name);
+                                Button bnUpdateName = nameD.findViewById(R.id.bn_update_name);
+
+                                nameBuilder.setView(nameD);
+                                final AlertDialog nameDialog = nameBuilder.create();
+                                nameDialog.show();
+
+                                bnUpdateName.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        String name =etName.getText().toString();
+
+                                        MainActivity.appDb.kidsDao().updateName(name, id);
+
+                                        Toast.makeText(getActivity(), "name updated", Toast.LENGTH_SHORT).show();
+                                        updateCursor(adapter);
+                                        nameDialog.hide();
+
+                                    }
+                                });
+
+
+
                                 Toast.makeText(getActivity(), "soon update", Toast.LENGTH_SHORT).show();
                                 break;
 
                             case R.id.popup_addpoint:
 
-                                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                                AlertDialog.Builder pointsBuilder = new AlertDialog.Builder(getContext());
                                 View pointsD = getLayoutInflater().inflate(R.layout.dialog_points, container, false);
                                 final EditText etPoints = pointsD.findViewById(R.id.et_add_point);
                                 Button bnPoints = pointsD.findViewById(R.id.bn_add_point);
 
-                                builder.setView(pointsD);
-                                final AlertDialog dialog = builder.create();
-                                dialog.show();
+                                pointsBuilder.setView(pointsD);
+                                final AlertDialog pointsDialog = pointsBuilder.create();
+                                pointsDialog.show();
 
                                 bnPoints.setOnClickListener(new View.OnClickListener() {
                                     @Override
@@ -111,7 +137,7 @@ public class ReadKidFragment extends Fragment {
 
                                         Toast.makeText(getActivity(), "points updated", Toast.LENGTH_SHORT).show();
                                         updateCursor(adapter);
-                                        dialog.hide();
+                                        pointsDialog.hide();
 
                                     }
                                 });

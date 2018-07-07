@@ -9,10 +9,6 @@
     <!-- TODO: Update blank fragment layout -->
 
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
     <Button
         android:id="@+id/bn_add"
@@ -33,24 +29,5 @@
         android:layout_marginTop="100dp"
         android:text="Show" />
 
-    <Button
-        android:id="@+id/bn_delete"
-        android:layout_width="182dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginTop="175dp"
-        android:layout_marginBottom="25dp"
-        android:text="Delete" />
-
-    <Button
-        android:id="@+id/bn_update"
-        android:layout_width="182dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginTop="250dp"
-        android:layout_marginBottom="25dp"
-        android:text="Update" />
 
 </FrameLayout>
